@@ -20,11 +20,35 @@ polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.256018679e-
 select -d pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
 move -r 0 0.880824 0 ;*/
 
-polyCylinder -n rightLeg1 -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+polyCylinder -n leg1 -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
 move -r 2 2.3 -2.6 ;
 scale 0.249 1.946 0.249;
-rotate -r -ws -fo 7.247755 9.525889 -29.069602 ;
+rotate -r -ws -fo 4 17.5 -29 ;
 //move -r 0.00456666 -0.225352 0; 
 duplicate -rr;
-rotate -r -ws -fo -8.816736 -0.744245 47.74262;
-move -r 1.507 -0.35 0.25; //0.0154248;
+rotate -r -ws -fo -8 -0 47;
+move -r 1.507 -0.35 0.225;
+polyUnite -ch 1 -mergeUVSets 1 -centerPivot -name rightLeg1 leg1 leg2;
+// Result: rightLeg3 polyUnite1 // 
+select -r rightLeg1;
+duplicate -rr;
+move -r 0 0 -0.8;
+rotate -r -ws -fo 1.65 3.8 0.8;
+select -r rightLeg2;
+duplicate -rr;
+move-r 0 0 -0.7;
+select -r rightLeg3 rightLeg1 rightLeg2 ;
+MirrorPolygonGeometry;
+polyMirrorFace  -cutMesh 1 -axis 0 -axisDirection 1 -mergeMode 1 -mergeThresholdType 0 -mergeThreshold 0.001 -mirrorAxis 2 -mirrorPosition 0 -smoothingAngle 30 -flipUVs 0 -ch 1 rightLeg1;
+// Result: polyMirror1 // 
+polyMirrorFace  -cutMesh 1 -axis 0 -axisDirection 1 -mergeMode 1 -mergeThresholdType 0 -mergeThreshold 0.001 -mirrorAxis 2 -mirrorPosition 0 -smoothingAngle 30 -flipUVs 0 -ch 1 rightLeg3;
+// Result: polyMirror2 // 
+polyMirrorFace  -cutMesh 1 -axis 0 -axisDirection 1 -mergeMode 1 -mergeThresholdType 0 -mergeThreshold 0.001 -mirrorAxis 2 -mirrorPosition 0 -smoothingAngle 30 -flipUVs 0 -ch 1 rightLeg2;
+// Result: polyMirror3 // 
+
+//eye 
+polySphere -n rightEye -r 1 -sx 20 -sy 20-ax 0 1 0 -cuv 2 -ch 1;
+scale -r 0.37 0.37 0.37;
+move -r 0.75 2 -4.86;
+duplicate -n leftEye -rr;
+move -r -0.75 0 0;
