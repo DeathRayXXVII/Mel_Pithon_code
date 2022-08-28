@@ -1,2 +1,30 @@
-polySphere -radius 3 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
-move -relative -objectSpace -worldSpaceDistance 0 3 0 ;
+//Create the butt of the spider
+polySphere -name head -radius 3 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 3 0;
+//create the main body of the spider
+polySphere -name body -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 0 1.6 -3.4;
+scale -r 1.892486 1.892486 1.892486 ;
+/*select -r pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
+PolyExtrude;
+hilite pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
+selectMode -component ;
+select -r pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.256018679e-07 -pvy 1 -pvz -3.94624355 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399];
+// Result: polyExtrudeFace1 // PolyExtrude;
+hilite pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
+selectMode -component ;
+select -r pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.256018679e-07 -pvy 1 -pvz -3.94624355 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399];
+// Result: polyExtrudeFace1 // 
+select -d pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
+move -r 0 0.880824 0 ;*/
+
+polyCylinder -n rightLeg1 -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+move -r 2 2.3 -2.6 ;
+scale 0.249 1.946 0.249;
+rotate -r -ws -fo 7.247755 9.525889 -29.069602 ;
+//move -r 0.00456666 -0.225352 0; 
+duplicate -rr;
+rotate -r -ws -fo -8.816736 -0.744245 47.74262;
+move -r 1.507 -0.35 0.25; //0.0154248;
