@@ -5,21 +5,8 @@ move -relative -objectSpace -worldSpaceDistance 0 3 0;
 polySphere -name body -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
 move -r 0 1.6 -3.4;
 scale -r 1.892486 1.892486 1.892486 ;
-/*select -r pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
-PolyExtrude;
-hilite pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
-selectMode -component ;
-select -r pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
-polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.256018679e-07 -pvy 1 -pvz -3.94624355 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399];
-// Result: polyExtrudeFace1 // PolyExtrude;
-hilite pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
-selectMode -component ;
-select -r pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
-polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.256018679e-07 -pvy 1 -pvz -3.94624355 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399];
-// Result: polyExtrudeFace1 // 
-select -d pSphere2.f[0:8] pSphere2.f[19:28] pSphere2.f[39:48] pSphere2.f[59:68] pSphere2.f[79:88] pSphere2.f[99:108] pSphere2.f[119:128] pSphere2.f[139:148] pSphere2.f[159:168] pSphere2.f[179:188] pSphere2.f[199:208] pSphere2.f[219:228] pSphere2.f[239:248] pSphere2.f[259:268] pSphere2.f[279:288] pSphere2.f[299:308] pSphere2.f[319:328] pSphere2.f[339:348] pSphere2.f[359:368] pSphere2.f[379:388] pSphere2.f[399] ;
-move -r 0 0.880824 0 ;*/
 
+//adding legs
 polyCylinder -n leg1 -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
 move -r 2 2.3 -2.6 ;
 scale 0.249 1.946 0.249;
@@ -63,7 +50,18 @@ move -r -0.42 1.18 -5.15;
 rotate -r -90 -9.505 0;
 //Why not a hat
 polyCylinder -name topHat -r 1 -h 2 -sx 20 -sy 2 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
-move -r 0 4 -4;
+move -r 0 3.7 -4;
 scale -r 0.6 0.48 0.6;
-select -add pCylinder1.e[20:39];
-move -r 0 -0.39 0;
+rotate -r -13 0 0;
+select -r topHat.f[0:19];
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -7.152557374e-08 -pvy 3.760000011 -pvz -4.000000072 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 topHat.f[0:19];
+setAttr "polyExtrudeFace5.localTranslateZ" 0.4;
+select -add topHat.f[81] topHat.f[83] topHat.f[85] topHat.f[87] topHat.f[89] topHat.f[91] topHat.f[93] topHat.f[95] topHat.f[97] topHat.f[99] topHat.f[101] topHat.f[103] topHat.f[105] topHat.f[107] topHat.f[109] topHat.f[111] topHat.f[113] topHat.f[115] topHat.f[117] topHat.f[119] ;
+move -r 0 -0.325 0;
+//select -add topHat.e[122] topHat.e[129] topHat.e[134] topHat.e[139] topHat.e[144] topHat.e[149] topHat.e[154] topHat.e[159] topHat.e[164] topHat.e[169] topHat.e[174] topHat.e[179] topHat.e[184] topHat.e[189] topHat.e[194] topHat.e[199] topHat.e[204] topHat.e[209] topHat.e[214] topHat.e[218] ;
+//move -r 0 0.2 0 ;
+
+//Clean up
+select -r fang1 leftEye rightEye rightLeg1 body topHat fang rightLeg2 rightLeg3 head ;
+makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1;
+delete -constructionHistory;
