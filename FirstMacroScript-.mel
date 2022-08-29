@@ -47,8 +47,8 @@ polyMirrorFace  -cutMesh 1 -axis 0 -axisDirection 1 -mergeMode 1 -mergeThreshold
 // Result: polyMirror3 // 
 
 //eye 
-polySphere -n rightEye -r 1 -sx 20 -sy 20-ax 0 1 0 -cuv 2 -ch 1;
+polySphere -name rightEye -r 1 -sx 20 -sy 20-ax 0 1 0 -cuv 2 -ch 1;
 scale -r 0.37 0.37 0.37;
 move -r 0.75 2 -4.86;
 duplicate -n leftEye -rr;
-move -r -0.75 0 0;
+move -moveX -0.75;
