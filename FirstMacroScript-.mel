@@ -52,3 +52,18 @@ scale -r 0.37 0.37 0.37;
 move -r 0.75 2 -4.86;
 duplicate -n leftEye -rr;
 move -moveX -0.75;
+//Mouth or fangs
+polyCone -n fang -r 1 -h 2 -sx 20 -sy 1 -sz 0 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+scale -r 0.465 0.665 0.4;
+move -r 0.42 1.18 -5.15;
+rotate -r -90 9.505 0;
+polyCone -n fang -r 1 -h 2 -sx 20 -sy 1 -sz 0 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+scale -r 0.465 0.665 0.4;
+move -r -0.42 1.18 -5.15;
+rotate -r -90 -9.505 0;
+//Why not a hat
+polyCylinder -name topHat -r 1 -h 2 -sx 20 -sy 2 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+move -r 0 4 -4;
+scale -r 0.6 0.48 0.6;
+select -add pCylinder1.e[20:39];
+move -r 0 -0.39 0;
