@@ -1,10 +1,21 @@
 float $size = 3;
 
-polySphere -r $size -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+polySphere -name Base -radius $size -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
 move -r -os -wd 0 $size 0;
 
-polySphere -r ($size - 1) -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+polySphere -name Tourso -radius ($size - 1) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
 move -r -os -wd 0 (($size * 2) + ($size % 2)) 0;
 
-polySphere -r ($size - 2) -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+polySphere -name Head -radius ($size - 2) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0  -createUVs 2 -constructionHistory 1;
 move -r -os -wd 0 (($size * 2) + (($size % 1.7) * 2) + ($size - 2)) 0;
+
+polyCube -w 1 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+setAttr "LeftArm.scaleX" $size;
+setAttr "LeftArm.scaleY" .5;
+setAttr "LeftArm.scaleZ" .5;
+move -r -os -wd ($size - .1) (($size * 2) + ($size - 2)) 0;
+rotate -r -ws -fo -8 -0 47;
+
+//setAttr "LeftArm.translateY" rand(8);
+//move -r  0 rand(9) 0;
+//rand(9);
