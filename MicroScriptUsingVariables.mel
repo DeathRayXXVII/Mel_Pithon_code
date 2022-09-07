@@ -11,16 +11,16 @@ polySphere -name Head -radius ($size - 2) -subdivisionsX 20 -subdivisionsY 20 -a
 move -r -os -wd 0 (($size * 2) + (($size % 1.7) * 2) + ($size - 2)) 0;
 
 //Added arrms
-polyCylinder -name LeftArm -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+polyCylinder -name Arm -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
 //scale ($scaleSize - $size) ($scaleSize + $size)  ($scaleSize - $size) ;
 scale .5  $size  .5 ;
 move -r ($size - .5) ($size * 2.7) 0;
 rotate -r -ws -fo -8 -0 -47;
-//setAttr "LeftArm.translateY" rand(8);
+//setAttr "Arm.translateY" rand(8);
 //move -r  0 rand(9) 0;
 //rand(9);
 MirrorPolygonGeometry;
-polyMirrorFace  -cutMesh 1 -axis 0 -axisDirection 1 -mergeMode 1 -mergeThresholdType 0 -mergeThreshold 0.001 -mirrorAxis 2 -mirrorPosition 0 -smoothingAngle 30 -flipUVs 0 -ch 1 LeftArm;
+polyMirrorFace  -cutMesh 1 -axis 0 -axisDirection 1 -mergeMode 1 -mergeThresholdType 0 -mergeThreshold 0.001 -mirrorAxis 2 -mirrorPosition 0 -smoothingAngle 30 -flipUVs 0 -ch 1 Arm;
 setAttr "polyMirror1.axisDirection";
 
 //Added a hat
@@ -63,8 +63,13 @@ rotate -r 25 -25 45;
 expandPolyGroupSelection; polyColorPerVertex -r 0 -g 0 -b 0 -a 1 -cdo;
 
 //adding buttons 2
-polyCube -name Button2 -w 1 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax  0 0 0 -cuv 4 -ch 1;
+polyCube -name Button3 -w 1 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax  0 0 0 -cuv 4 -ch 1;
 scale -r .16 .16 .16;
 move -r -.025 (($size * 2) + ($size % 1.3)) -1.9;
 rotate -r -15 15 45;
 expandPolyGroupSelection; polyColorPerVertex -r 0 -g 0 -b 0 -a 1 -cdo;
+
+//Clean up
+select -r Base Tourso Head Arm topHat Eye1 Eye2 Button1 Button2 Button3 ;
+makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1;
+delete -constructionHistory;
