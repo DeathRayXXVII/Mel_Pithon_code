@@ -2,6 +2,7 @@
 
 proc Staircase(float $stair, float $length, float $width, float $height, float $pivitPoint, float $stepHeight, float $rotation)
 {
+        
         polyCube -width $width -height $height -d $length;
         xform -rotatePivot 0 0 $pivitPoint;
     for ($i=0; $i<=$star; $i++)
@@ -11,6 +12,8 @@ proc Staircase(float $stair, float $length, float $width, float $height, float $
         rotate -r 0 $rotation 0;
     }
 }
+
+Starcase(100,3,1,.2,3,.2,4);
 
 
 
