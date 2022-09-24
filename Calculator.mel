@@ -1,0 +1,59 @@
+//addition
+//subtraction
+//multiplication
+//division
+//power
+//mean
+//median
+
+proc Calculator()
+{
+
+}
+
+global proc Addition(int $num, int $num2)
+{
+    
+    int $result = $num += $num2;
+    print ($result);
+}
+//Addition(2,2);
+
+global proc Subtraction(int $num, int $num2)
+{
+    int $result = $num -= $num2;
+    print ($result);
+}
+//Subtraction(4,2);
+
+global proc Multiplication(int $num, int $num2)
+{
+    int $result = $num *= $num2;
+    print ($result);
+}
+//Multiplication(5,5);
+
+global proc Division(int $num, int $num2)
+{
+    int $result = $num /= $num2;
+    print ($result);
+}
+//Division(18,6);
+
+global proc Power(int $num, int $num2)
+{
+    int $result = $num ^= 5;
+    print ($result);
+}
+Power(4,3);
+
+global proc Mean(int $num[])
+{
+    int $result = $num[] += $num[];
+    print ($result);
+}
+
+global proc Median(int $num, int $num2)
+{
+
+}
