@@ -1,0 +1,98 @@
+/*proc SayHello (string $name)
+{
+    print ("Hello " + $name + "!");
+}
+
+SayHello("Doug");
+
+proc string NamePicker ()
+{
+    string  $name[] = {"Dave", "Doug", "Clarence", "Mary", "Jane", "Tina"};
+    int $size = size($name);
+    int $randNum = `rand $size`;
+    print ($name[$randNum] + "\n");
+
+    return ($name[$randNum]);
+}
+string $randName = NamePicker();
+
+print ($randName);
+
+
+proc int RandomNumeber(int $num)
+{
+    int $randNum = `rand $num`;
+    print ("This random number is " + $randNum + "\n");
+    return ($randNum);
+}
+print (RandomNumeber(100) + RandomNumeber(100));
+
+print(NamePicker() + "'s favorte number is " + RandomNumeber(100) + "!\n");*/
+
+
+//Generate random lottery numbers
+
+global proc string LotteryNumbers()
+{
+    int $values[];
+    for ($i = 0; $i < 7; $i++)
+    {
+        int $num = `rand 100`;
+        $values[size($values)] = $num; //access the Element of the array
+    }
+
+    return (intArrayToString($values, " - "));
+}
+//print (LotteryNumbers();)
+
+global proc BesstestFriend (string $name)
+{
+    string  $names[] = {"Dave", "Doug", "Clarence", "Mary", "Jane", "Tina"};
+    int $size = size($names);//get the number of items in the array
+    int $randNum = `rand $size`;//generate based on the number of items of the array
+    print ($name + ", Your new bestest friend will be named " + $names[$randNum] +"!/n");
+}
+
+
+global proc fortuneCookie()
+{
+    string $fortunes[] = {"Your nice", "Your ugly", "I like you", "Good bye"};
+    int $randNum = `rand (size($fortunes))`;
+    print ($fortunes[$randNum] + "\n");
+}
+
+global proc string Zodiac(int $birthYear)
+{
+    string $signs[] = {"Rat", "ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse","Sheep", "Monkey", "Rooster", "Dog", "Pig"};
+    int $index = ($birthYear - 4) % 12;
+
+   return $signs[$index];
+}
+
+
+
+proc FortuneTeller(string $myName, int $myBirthYear, int $operation)
+{
+    if($operation == 1)
+    {
+        print ("Your lucky numbers for today are " + LotteryNumbers() + "\n");
+    }
+    else if ($operation == 2)
+    {
+        BesstestFriend($myName);
+    }
+    else if($operation == 3)
+    {
+        fortuneCookie();
+    }
+    else if($operation == 4)
+    {
+        print ("Based on your birth year, " + $myBirthYear + " , your zodiac sign is " + Zodiac($myBirthYear) + "\n");
+    }
+    else
+    {
+        print ("Please input a valid operation type as a value, 1 through 4!!\n");
+    }
+}
+
+FortuneTeller("Riley", 2000, 1);
