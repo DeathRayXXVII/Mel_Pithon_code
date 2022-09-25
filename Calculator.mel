@@ -42,13 +42,18 @@ proc Calculator(int $num[], $operation)
 }
 Calculator();
 
-global proc int Addition(int $num, int $num2)
+global proc int Addition(int $num[])//, int $num2)
 {
     
-    int $result = $num += $num2;
-    print ($result);
+    //int $result = $num += $num2;
+    int $result = size($num);
+    for (i=0; i < $result; i++)
+    {
+        num[i];
+    }
+    retrun ($result);
 }
-//Addition(2,2);
+Addition(2,2);
 
 global proc Subtraction(int $num, int $num2)
 {
