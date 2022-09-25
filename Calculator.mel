@@ -6,54 +6,23 @@
 //mean
 //median
 
-proc Calculator(int $num[], $operation)
-{
-    if ($operation == 1)
-    {
-        Addition();
-    }
-    else if ($operation == 2)
-    {
-        Subtration();
-    }
-    else if ($operation == 3)
-    {
-        Multiplication();
-    }
-    else if ($operation == 4)
-    {
-        Division();
-    }
-    else if ($operation == 5)
-    {
-        Power();
-    }
-    else if ($operation == 6)
-    {
-        Mean();
-    }
-    else if ($operation == 7)
-    {
-        Median();
-    }
-    else{
-        print("Please input a number from 1 -7 after your arrary of numbers!! \n");
-    }
-}
-Calculator();
 
-global proc int Addition(int $num[])//, int $num2)
+
+global proc Addition(int $num, int $num2)
 {
-    
-    //int $result = $num += $num2;
+    int $result = $num += $num2;
+    print ($result);
+    /*
+    int $total = 0;
     int $result = size($num);
-    for (i=0; i < $result; i++)
+    for ($i=0; $i < $result; $i++)
     {
-        num[i];
+       $total += $num[$i];
     }
-    retrun ($result);
+    return $total;
+    */
 }
-Addition(2,2);
+//Addition(2,2);
 
 global proc Subtraction(int $num, int $num2)
 {
@@ -88,9 +57,46 @@ global proc Mean(int $num, int $num2)
     int $result = ($num += $num2) / 2;
     print ($result);
 }
-Mean 2, 4;
+//Mean 2, 4;
 
 global proc Median(int $num, int $num2)
 {
 
 }
+
+global proc Calculator(int $num, int $num2, int $operation)
+{
+    if ($operation == 1)
+    {
+        //print($num + "+ " + $num2 + "= " + Addition($num,$num2) + "\n");
+        Addition($num,$num2);
+    }
+    else if ($operation == 2)
+    {
+        Subtraction($num,$num2);
+    }
+    else if ($operation == 3)
+    {
+        Multiplication($num,$num2);
+    }
+    else if ($operation == 4)
+    {
+        Division($num,$num2);
+    }
+    else if ($operation == 5)
+    {
+        Power($num,$num2);
+    }
+    else if ($operation == 6)
+    {
+        Mean($num,$num2);
+    }
+    else if ($operation == 7)
+    {
+        Median($num,$num2);
+    }
+    else{
+        print("Please input a number from 1 -7 after your arrary of numbers!! \n");
+    }
+}
+Calculator(2,5,1);
