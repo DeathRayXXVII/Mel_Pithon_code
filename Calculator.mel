@@ -6,12 +6,43 @@
 //mean
 //median
 
-proc Calculator()
+proc Calculator(int $num[], $operation)
 {
-
+    if ($operation == 1)
+    {
+        Addition();
+    }
+    else if ($operation == 2)
+    {
+        Subtration();
+    }
+    else if ($operation == 3)
+    {
+        Multiplication();
+    }
+    else if ($operation == 4)
+    {
+        Division();
+    }
+    else if ($operation == 5)
+    {
+        Power();
+    }
+    else if ($operation == 6)
+    {
+        Mean();
+    }
+    else if ($operation == 7)
+    {
+        Median();
+    }
+    else{
+        print("Please input a number from 1 -7 after your arrary of numbers!! \n");
+    }
 }
+Calculator();
 
-global proc Addition(int $num, int $num2)
+global proc int Addition(int $num, int $num2)
 {
     
     int $result = $num += $num2;
@@ -42,16 +73,17 @@ global proc Division(int $num, int $num2)
 
 global proc Power(int $num, int $num2)
 {
-    int $result = $num ^= 5;
+    int $result = pow ($num, $num2);
     print ($result);
 }
-Power(4,3);
+//Power(4,3);
 
-global proc Mean(int $num[])
+global proc Mean(int $num, int $num2)
 {
-    int $result = $num[] += $num[];
+    int $result = ($num += $num2) / 2;
     print ($result);
 }
+Mean 2, 4;
 
 global proc Median(int $num, int $num2)
 {
