@@ -66,10 +66,11 @@ global proc int Division(int $num[]) //int $num2)
 }
 //Division(18,6);
 
-global proc Power(int $num, int $num2)
+global proc int Power(int $num, int $num2)
 {
     int $result = pow ($num, $num2);
-    print ($result);
+    //print ($result);
+    return $result;
 }
 //Power(4,3);
 
@@ -115,7 +116,7 @@ global proc int Median(int $num[]) //int $num2)
     }
     return $median;
 }
-    Median({1,3,5,7});
+    //Median({1,3,5,7});
 
 global proc Calculator(int $num[], int $operation)
 {
@@ -147,12 +148,12 @@ global proc Calculator(int $num[], int $operation)
     else if ($operation == 6)
     {
         //Mean($num,$num2);
-        print ("The mean of " + intArrayToString($num, ", ") + "is " + Mean($num) + "\n");
+        print ("The mean of " + intArrayToString($num, ", ") + " is " + Mean($num) + "\n");
     }
     else if ($operation == 7)
     {
         //Median($num,$num2);
-        print ("The mean of " + intArrayToString($num, ", ") + "is " + Median($num) + "\n");
+        print ("The median of " + intArrayToString($num, ", ") + " is " + Median($num) + "\n");
     }
     else{
         print("Please input a number from 1 -7 after your arrary of numbers!! \n");
