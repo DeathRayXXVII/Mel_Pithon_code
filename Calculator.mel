@@ -28,9 +28,9 @@ global proc int Subtraction(int $num[]) //int $num2
 {
     //int $result = $num -= $num2;
     //print ($result);
-    int $total = 0;
+    int $total = $num[0];
     int $result = size($num);
-    for ($i=0; $i < $result; $i++)
+    for ($i=1; $i < $result; $i++)
     {
        $total -= $num[$i];
     }
