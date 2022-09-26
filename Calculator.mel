@@ -8,11 +8,11 @@
 
 
 
-global proc Addition(int $num, int $num2)
+global proc int Addition(int $num[]) //, int $num2)
 {
-    int $result = $num += $num2;
-    print ($result);
-    /*
+    //int $result = $num += $num2;
+    //print ($result);
+    
     int $total = 0;
     int $result = size($num);
     for ($i=0; $i < $result; $i++)
@@ -20,28 +20,49 @@ global proc Addition(int $num, int $num2)
        $total += $num[$i];
     }
     return $total;
-    */
+    
 }
-//Addition(2,2);
+//Addition({2,2});
 
-global proc Subtraction(int $num, int $num2)
+global proc int Subtraction(int $num[]) //int $num2
 {
-    int $result = $num -= $num2;
-    print ($result);
+    //int $result = $num -= $num2;
+    //print ($result);
+    int $total = 0;
+    int $result = size($num);
+    for ($i=0; $i < $result; $i++)
+    {
+       $total -= $num[$i];
+    }
+    return $total;
 }
-//Subtraction(4,2);
+//Subtraction({4,2});
 
-global proc Multiplication(int $num, int $num2)
+global proc int Multiplication(int $num[]) //int $num2)
 {
-    int $result = $num *= $num2;
-    print ($result);
+    //int $result = $num *= $num2;
+    //print ($result);
+    int $total = 1;
+    int $result = size($num);
+    for ($i=0; $i < $result; $i++)
+    {
+       $total *= $num[$i];
+    }
+    return $total;
 }
-//Multiplication(5,5);
+//Multiplication({5,5});
 
-global proc Division(int $num, int $num2)
+global proc int Division(int $num[]) //int $num2)
 {
-    int $result = $num /= $num2;
-    print ($result);
+    //int $result = $num /= $num2;
+    //print ($result);
+    int $total = 0;
+    int $result = size($num);
+    for ($i=0; $i < $result; $i++)
+    {
+       $total /= $num[$i];
+    }
+    return $total;
 }
 //Division(18,6);
 
@@ -52,51 +73,89 @@ global proc Power(int $num, int $num2)
 }
 //Power(4,3);
 
-global proc Mean(int $num, int $num2)
+global proc int Mean(int $num[]) //int $num2)
 {
-    int $result = ($num += $num2) / 2;
-    print ($result);
+    //int $result = ($num += $num2) / 2;
+    //print ($result);
+    int $total = 0;
+    int $result = size($num);
+    for ($i=0; $i < $result; $i++)
+    {
+       $total += $num[$i];
+    }
+    $mean = ($total / $result);
+    return $mean;
 }
-//Mean 2, 4;
+//Mean ({2, 4});
 
-global proc Median(int $num, int $num2)
+global proc int CheckingIfEven(int $num)
 {
-
+    if (($num % 2) == 0)
+    {
+        return true;
+    }
+    return false;
 }
 
-global proc Calculator(int $num, int $num2, int $operation)
+global proc int Median(int $num[]) //int $num2)
+{
+    $num = `sort $num`;
+    int $result = size($num);
+
+    int $median;
+    if (CheckingIfEven($result))
+    {
+        $median = (($num[$result / 2] + $num[$result / 2] - 1) / 2);
+        print($median + "\n");
+    }
+    else
+    {
+        $median = $num[$result / 2];
+        print($median + "\n");
+    }
+    return $median;
+}
+    Median({1,3,5,7});
+
+global proc Calculator(int $num[], int $operation)
 {
     if ($operation == 1)
     {
         //print($num + "+ " + $num2 + "= " + Addition($num,$num2) + "\n");
-        Addition($num,$num2);
+        print (intArrayToString($num, " + ") + " = " + Addition($num) + "\n");
     }
     else if ($operation == 2)
     {
-        Subtraction($num,$num2);
+        //Subtraction($num,$num2);
+        print (intArrayToString($num, " - ") + " = " + Subtraction($num) + "\n");
     }
     else if ($operation == 3)
     {
-        Multiplication($num,$num2);
+        //Multiplication($num,$num2);
+        print (intArrayToString($num, " * ") + " = " + Multiplication($num) + "\n");
     }
     else if ($operation == 4)
     {
-        Division($num,$num2);
+        //Division($num,$num2);
+        print (intArrayToString($num, " / ") + " = " + Division($num) + "\n");
     }
     else if ($operation == 5)
     {
-        Power($num,$num2);
+        //Power($num,$num2);
+        print (intArrayToString($num, " ^ ") + " = " + Power($num[0], $num[1]) + "\n");
     }
     else if ($operation == 6)
     {
-        Mean($num,$num2);
+        //Mean($num,$num2);
+        print ("The mean of " + intArrayToString($num, ", ") + "is " + Mean($num) + "\n");
     }
     else if ($operation == 7)
     {
-        Median($num,$num2);
+        //Median($num,$num2);
+        print ("The mean of " + intArrayToString($num, ", ") + "is " + Median($num) + "\n");
     }
     else{
         print("Please input a number from 1 -7 after your arrary of numbers!! \n");
     }
 }
-Calculator(2,5,1);
+Calculator({2,5},5);
