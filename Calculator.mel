@@ -84,7 +84,7 @@ global proc int Mean(int $num[]) //int $num2)
     {
        $total += $num[$i];
     }
-    $mean = ($total / $result);
+    int $mean = ($total / $result);
     return $mean;
 }
 //Mean ({2, 4});
