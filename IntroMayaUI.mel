@@ -1,16 +1,13 @@
-window;
-    columnLayout;
-        button;
-        button; 
-        intField;
-        rowLayout -numberOfColums 3;
-            button;
-            textField;
-            columnLayout;
-                button;
-                button;
-                button;
-                setParent ..;
-                button;
+global proc add()
+{
+    float $sum = 3.5 + 5.3;
+    print("The sum is " + $sum);
+}
 
-showWindow;
+string $mWindow = `window -height 300 -title "Super Cool Window" -sizeable 1 -with 400 "my_tools_ui"`;
+string $mColumn = `columnLayout -adjustableColumn 1 -parent $mWindow`;
+button -parent $mColumn -lable "Say Hello!" -command "print(\"Hello World!\")"
+button -parent $mColumn -label "Add numbers" -command Add;
+showWindow $mWindow;
+
+
