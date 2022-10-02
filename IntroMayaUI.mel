@@ -1,0 +1,16 @@
+window;
+    columnLayout;
+        button;
+        button; 
+        intField;
+        rowLayout -numberOfColums 3;
+            button;
+            textField;
+            columnLayout;
+                button;
+                button;
+                button;
+                setParent ..;
+                button;
+
+showWindow;
