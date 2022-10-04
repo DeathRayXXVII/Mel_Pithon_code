@@ -1,12 +1,47 @@
-global proc add()
+global proc Add()
 {
-    float $sum = 3.5 + 5.3;
-    print("The sum is " + $sum);
+   string $field1 = `optionVar -query "firstField"`;
+   string $field2 = `optionVar -query "secondField"`;
+   string $field3 = `optionVar -query "thirdField"`;
+   string $field4 = `optionVar -query "myTextField"`;
+
+   float $value1 = `floatField - query -value $field1`;
+   float $value2 = `floatField - query -value $field2`;
+
+    float $sum = $value1 + $value2;
+
+    floatField -e -value $sum $field3;
+    textField -e -text ("The sum of " + $value1 + " and " + $value2 + " is " + $sum + ".") $field4;
+}
+global proc WhatsInFloatField()
+{
+    string $field1 = `optionVar -query "firstField"`;
+    print ($field1 + "\n");
+
+    print (`floatField -q -value field1`);
 }
 
-string $mWindow = `window -height 300 -title "Super Cool Window" -sizeable 1 -with 400 "my_tools_ui"`;
+string $mWindow = "test_ui";
+
+if (`window -exists $mWindow`)
+    deleteUI $mWindow;
+
+$mWindow = `window -height 300 
+                    -title "Super Cool Window" 
+                    -sizeable 1 
+                    -width 400 
+                    $mWindow`;
 string $mColumn = `columnLayout -adjustableColumn 1 -parent $mWindow`;
-button -parent $mColumn -lable "Say Hello!" -command "print(\"Hello World!\")"
+button -parent $mColumn -label "Say Hello!" -command "print(\"Hello World!\")";
+
+optionVar -stringValue "firstField" `floatField`;
+optionVar -stringValue "secondField" `floatField`;
+optionVar -stringValue "thirdField" `floatField -editable 0`;
+optionVar -stringValue "myTextField" `textField -editable 0`;
+
+
+
+button -parent $mColumn -label "Print field Value" -command WhatsInFloatField;
 button -parent $mColumn -label "Add numbers" -command Add;
 showWindow $mWindow;
 
