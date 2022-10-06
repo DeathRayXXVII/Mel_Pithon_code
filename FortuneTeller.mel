@@ -45,20 +45,20 @@ global proc string LotteryNumbers()
 }
 //print (LotteryNumbers();)
 
-global proc BesstestFriend (string $name)
+global proc string BesstestFriend (string $name)
 {
     string  $names[] = {"Dave", "Doug", "Clarence", "Mary", "Jane", "Tina"};
     int $size = size($names);//get the number of items in the array
     int $randNum = `rand $size`;//generate based on the number of items of the array
-    print ($name + ", Your new bestest friend will be named " + $names[$randNum] +"!/n");
+    return ($name + ", Your new bestest friend will be named " + $names[$randNum] +"!");
 }
 
 
-global proc fortuneCookie()
+global proc string fortuneCookie()
 {
     string $fortunes[] = {"Your nice", "Your ugly", "I like you", "Good bye"};
     int $randNum = `rand (size($fortunes))`;
-    print ($fortunes[$randNum] + "\n");
+    return ($fortunes[$randNum]);
 }
 
 global proc string Zodiac(int $birthYear)
@@ -71,28 +71,63 @@ global proc string Zodiac(int $birthYear)
 
 
 
-proc FortuneTeller(string $myName, int $myBirthYear, int $operation)
+global proc string FortuneTeller(string $myName, int $myBirthYear, int $operation)
 {
     if($operation == 1)
     {
-        print ("Your lucky numbers for today are " + LotteryNumbers() + "\n");
+        return ("Your lucky numbers for today are " + LotteryNumbers() + "!");
     }
     else if ($operation == 2)
     {
-        BesstestFriend($myName);
+        return (BesstestFriend($myName));
     }
     else if($operation == 3)
     {
-        fortuneCookie();
+        return (fortuneCookie());
     }
     else if($operation == 4)
     {
-        print ("Based on your birth year, " + $myBirthYear + " , your zodiac sign is " + Zodiac($myBirthYear) + "\n");
+        return ("Based on your birth year, " + $myBirthYear + " , your zodiac sign is " + Zodiac($myBirthYear) + "!");
     }
     else
     {
-        print ("Please input a valid operation type as a value, 1 through 4!!\n");
+        print ("Please input a valid operation type as a value, 1 through 4!!");
     }
 }
 
-FortuneTeller("Riley", 2000, 1);
+//FortuneTeller("Riley", 2000, 1);
+
+global proc FT_ButtonCmd()
+{
+    string $nameField = `optionVar -q "ftNameField"`;
+    string $yearField = `optionVar -q "ftYearField"`;
+    string $operField = `optionVar -q "ftOperation"`;
+    string $resultField = `optionVar -q "ftResult"`;
+
+    string $name = `textField -q -text $nameField`;
+    string $year = `intField -q -value $yearField`;
+    string $oper = `radioButtonGrp -q -select $operField`;
+
+    string $result = FortuneTeller ($name, $year, $oper);
+    textField -e -text $result $resultField;
+
+}
+
+global proc ForturneUI()
+{
+    string $mWindow = "ftWindow";
+    if(`window -exists $mWindow`)
+        deleteUI $mWindow;
+
+    $mWindow = `window -title "Fortune Teller" -widthHeight 300 400 -resizeToFitChildren 1 $mWindow`;
+    string $mColumn = `columnLayout -parent $mWindow -adjustableColumn 1`;
+    optionVar -stringValue "ftNameField" `textField -parent $mColumn -placeholderText "Enter name here..."`;
+    optionVar -stringValue "ftYearField" `intField -parent $mColumn`;
+    optionVar -stringValue "ftOperation" `radioButtonGrp -parent $mColumn -numberOfRadioButtons 4 -labelArray4 "Luckey Numbers" "Best Friend" "Fortune Cookie" "Zodiac Sign"`;
+    button -parent $mColumn -label "Go!" -command "FT_ButtonCmd";
+    optionVar -stringValue "ftResult" `textField -parent $mColumn -editable 0`;
+
+    showWindow $mWindow;
+}
+
+ForturneUI();
