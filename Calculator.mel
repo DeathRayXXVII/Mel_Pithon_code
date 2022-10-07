@@ -118,7 +118,7 @@ global proc int Median(int $num[]) //int $num2)
 }
     //Median({1,3,5,7});
 
-global proc int Calculator(int $num[], int $operation)
+global proc string Calculator(int $num[], int $operation)
 {
     if ($operation == 1)
     {
@@ -166,11 +166,11 @@ global proc C_ButtonCmd()
     string $operField = `optionVar -q "cOperation"`;
     string $resultField = `optionVar -q "cResult"`;
 
-    int $num[] = `intField -q -text $numField`;
+    int $num[] = `textField -q -text $numField`;
     //string $num2 = `intField -q -value $num2Field`;
     string $oper = `radioButtonGrp -q -select $operField`;
 
-    string $result = Calculator ($num[], $oper);
+    string $result = Calculator ($num, $oper);
     textField -e -text $result $resultField;
 
 }
@@ -183,13 +183,13 @@ global proc CalculatorUI()
 
     $mWindow = `window -title "Calculator" -widthHeight 300 400 -resizeToFitChildren 1 $mWindow`;
     string $mColumn = `columnLayout -parent $mWindow -adjustableColumn 1`;
-    optionVar -stringValue "cNumField" `intField -parent $mColumn`;
+    optionVar -stringValue "cNumField" `textField -parent $mColumn`;
     optionVar -stringValue "cnum2Field" `intField -parent $mColumn`;
-    optionVar -stringValue "cOperation" `radioButtonGrp -parent $mColumn -numberOfRadioButtons 7 -labelArray7 "Add" "Substract" "Multiply" "divid" "Mean" "Median" `;
+    optionVar -stringValue "cOperation" `radioButtonGrp -parent $mColumn -numberOfRadioButtons 4 -labelArray4 "Add" "Substract" "Multiply" "divid"`;
     button -parent $mColumn -label "Go!" -command "C_ButtonCmd";
     optionVar -stringValue "cResult" `textField -parent $mColumn -editable 0`;
 
     showWindow $mWindow;
 }
 
-//Calculator({2,5},5);
+CalculatorUI();
