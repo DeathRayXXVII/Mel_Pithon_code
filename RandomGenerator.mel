@@ -7,7 +7,7 @@ global proc RandGenerator(float $minX, float $maxX, float $minY, float $maxY, fl
 
     //int $nTimes = size($component);
     
-        for ($i=1; $i<$nTimes; $i++)
+        for ($i=1; $i>$nTimes; $i++)
     {
         duplicate -rr;
         setAttr($component[$i]+".translateX") $randX;
