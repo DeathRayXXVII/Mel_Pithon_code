@@ -1,0 +1,22 @@
+global proc RandGenerator(float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ, int $nTimes)
+{
+    string $component[] = `ls -selection`;
+    float $randX = rand($minX,$maxX);
+    float $randY = rand($minY,$maxY);
+    float $randZ = rand($minZ,$maxZ);
+
+    //int $nTimes = size($component);
+    
+        for ($i=1; $i<$nTimes; $i++)
+    {
+        duplicate -rr;
+        setAttr($component[$i]+".translateX") $randX;
+        move -r $randX 0 0;
+        //setAttr($component[$i]+".translateY") $randY;
+        //move -r  0 $randY 0;
+        setAttr($component[$i]+".translateZ") $randZ;
+        move -r  0 0 $randZ;
+    }
+    
+}
+RandGenerator(-10,10,-12,5,-8,6,3);
