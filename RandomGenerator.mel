@@ -1,45 +1,70 @@
-global proc RandGenerator(float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ, int $nTimes)
+global proc RandGenerator(int $nTimes, float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ)
 {
     string $component[] = `ls -selection`;
     float $randX = rand($minX,$maxX);
     float $randY = rand($minY,$maxY);
     float $randZ = rand($minZ,$maxZ);
 
-    //int $nTimes = size($component);
-    
-        for ($i=1; $i>$nTimes; $i++)
+    //$nTimes = size($component);
+    for ($i=1; $i<=$nTimes; $i++)
     {
-        duplicate -rr;
-        setAttr($component[$i]+".translateX") $randX;
-        move -r $randX 0 0;
-        //setAttr($component[$i]+".translateY") $randY;
-        //move -r  0 $randY 0;
-        setAttr($component[$i]+".translateZ") $randZ;
-        move -r  0 0 $randZ;
+        
+            if($randX != 0)
+            {
+                duplicate -rr;
+                move -r  $randX 0 0;
+                //setAttr($component[$i]+".translateX") $randX;
+            }
+            if($randY != 0)
+            {
+                duplicate -rr;
+                move -r  0 $randY 0;
+            }
+            if($randZ != 0)
+            {
+                duplicate -rr;
+                move -r  0 0 $randZ;
+                //setAttr($component[$i]+".translateZ") $randZ;
+            }
+            /*
+            for ($i=1; $i<=$nTimes; $i++)
+        {
+            duplicate -rr;
+            move -r $randX 0 0;
+            setAttr($component[$nTimes]+".translateX") $randX;
+            move -r  0 $randY 0;
+            setAttr($component[$nTimes]+".translateY") $randY;
+            move -r  0 0 $randZ;
+            setAttr($component[$nTimes]+".translateZ") $randZ;
+            
+        }*/
     }
+        
     
 }
 //RandGenerator(-10,10,-12,5,-8,6,3);
 
 global proc RG_ButtonCmd()
 {
+    string $numTimes = `optionVar -q "NumTimes"`;
     string $minFieldX = `optionVar -q "minFieldx"`;
     string $maxFieldX = `optionVar -q "maxFieldx"`;
     string $minFieldY = `optionVar -q "minFieldy"`;
     string $maxFieldY = `optionVar -q "maxFieldy"`;
     string $minFieldZ = `optionVar -q "minFieldz"`;
     string $maxFieldZ = `optionVar -q "maxFieldz"`;
-    string $numTimes = `optionVar -q "NumTimes"`;
 
+
+    string $nTimes = `intSlider -q -value $numTimes`;
     string $minX = `intField -q -value $minFieldX`;
     string $maxX = `intField -q -value $maxFieldX`;
     string $minY = `intField -q -value $minFieldY`;
     string $maxY = `intField -q -value $maxFieldY`;
     string $minZ = `intField -q -value $minFieldZ`;
     string $maxZ = `intField -q -value $maxFieldZ`;
-    string $nTimes = `intSlider -q -value $numTimes`;
+    
 
-    string $result = RandGenerator($minX,$maxX,$minY,$maxY,$minZ,$maxZ,$nTimes);
+    string $result = RandGenerator($nTimes, $minX,$maxX,$minY,$maxY,$minZ,$maxZ);
     
 
 }
@@ -53,6 +78,8 @@ global proc RandGeneratorUI()
     $mWindow = `window -title "Random_Generator" -widthHeight 300 400 -resizeToFitChildren 1 $mWindow`;
 
     string $intColumn = `columnLayout -parent $mWindow -adjustableColumn 2`;
+    optionVar -stringValue "ntText" `textField -parent $intColumn -editable 0 -placeholderText "Number of times to generate"`;
+    optionVar -stringValue "NumTimes" `intSlider -parent $intColumn`;
     optionVar -stringValue "xText" `textField -parent $intColumn -editable 0 -placeholderText "Min x, Max X"`;
     optionVar -stringValue "minFieldx" `intField -parent $intColumn`;
     optionVar -stringValue "maxFieldx" `intField -parent $intColumn`;
@@ -62,8 +89,7 @@ global proc RandGeneratorUI()
     optionVar -stringValue "zText" `textField -parent $intColumn -editable 0 -placeholderText "Min z, Max z"`;
     optionVar -stringValue "minFieldz" `intField -parent $intColumn`;
     optionVar -stringValue "maxFieldz" `intField -parent $intColumn`;
-    optionVar -stringValue "ntText" `textField -parent $intColumn -editable 0 -placeholderText "Number of times to generate"`;
-    optionVar -stringValue "NumTimes" `intSlider -parent $intColumn`;
+    
 
     button -parent $intColumn -label "Generate" -command "RG_ButtonCmd";
 
