@@ -1,46 +1,25 @@
 global proc RandGenerator(int $nTimes, float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ)
 {
     string $component[] = `ls -selection`;
-    float $randX = rand($minX,$maxX);
-    float $randY = rand($minY,$maxY);
-    float $randZ = rand($minZ,$maxZ);
+    //float $randX = rand($minX,$maxX);
+    //float $randY = rand($minY,$maxY);
+    //float $randZ = rand($minZ,$maxZ);
 
     //$nTimes = size($component);
     for ($i=1; $i<=$nTimes; $i++)
     {
-        
-            if($randX != 0)
-            {
-                duplicate -rr;
-                move -r  $randX 0 0;
-                //setAttr($component[$i]+".translateX") $randX;
-            }
-            if($randY != 0)
-            {
-                duplicate -rr;
-                move -r  0 $randY 0;
-            }
-            if($randZ != 0)
-            {
-                duplicate -rr;
-                move -r  0 0 $randZ;
-                //setAttr($component[$i]+".translateZ") $randZ;
-            }
-            /*
-            for ($i=1; $i<=$nTimes; $i++)
+        for ($i=1; $i<=$nTimes; $i++)
         {
             duplicate -rr;
-            move -r $randX 0 0;
-            setAttr($component[$nTimes]+".translateX") $randX;
-            move -r  0 $randY 0;
-            setAttr($component[$nTimes]+".translateY") $randY;
-            move -r  0 0 $randZ;
-            setAttr($component[$nTimes]+".translateZ") $randZ;
+            move -r  (rand($minX,$maxX)) 0 0;
+            //setAttr($component[$i]+".translateX") $randX;
+            move -r  0 (rand($minY,$maxY)) 0;
+            //setAttr($component[$i]+".translateY") $randY;
+            move -r  0 0 (rand($minZ,$maxZ));
+            //setAttr($component[$i]+".translateZ") $randZ;
             
-        }*/
+        }
     }
-        
-    
 }
 //RandGenerator(-10,10,-12,5,-8,6,3);
 
@@ -55,7 +34,7 @@ global proc RG_ButtonCmd()
     string $maxFieldZ = `optionVar -q "maxFieldz"`;
 
 
-    string $nTimes = `intSlider -q -value $numTimes`;
+    string $nTimes = `intField -q -value $numTimes`;
     string $minX = `intField -q -value $minFieldX`;
     string $maxX = `intField -q -value $maxFieldX`;
     string $minY = `intField -q -value $minFieldY`;
@@ -79,7 +58,7 @@ global proc RandGeneratorUI()
 
     string $intColumn = `columnLayout -parent $mWindow -adjustableColumn 2`;
     optionVar -stringValue "ntText" `textField -parent $intColumn -editable 0 -placeholderText "Number of times to generate"`;
-    optionVar -stringValue "NumTimes" `intSlider -parent $intColumn`;
+    optionVar -stringValue "NumTimes" `intField -parent $intColumn`;
     optionVar -stringValue "xText" `textField -parent $intColumn -editable 0 -placeholderText "Min x, Max X"`;
     optionVar -stringValue "minFieldx" `intField -parent $intColumn`;
     optionVar -stringValue "maxFieldx" `intField -parent $intColumn`;
