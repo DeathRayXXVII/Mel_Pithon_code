@@ -161,26 +161,24 @@ global proc string Calculator(int $num[], int $operation)
 }
 global proc C_ButtonCmd()
 {
-    int $numField = `optionVar -q "cNumField"`;
-    int $num2Field = `optionVar -q "cNum2Field"`;
-    int $num3Field = `optionVar -q "cNum3Field"`;
-    int $num4Field = `optionVar -q "cNum4Field"`;
-    int $num5Field = `optionVar -q "cNum5Field"`;
+    string $numField = `optionVar -q "numText"`;
     string $operField = `optionVar -q "cOperation"`;
     string $resultField = `optionVar -q "cResult"`;
 
 
-    string $rCollection = `optionVar -q "myCollection";
+    string $rCollection = `optionVar -q "myCollection"`;
     string $rbutton = `radioCollection -q -select $rCollection`;
     radioButton -q -label $rbutton;
 
     
 //stringToStringArray  (float)
     
-    int $num[] = `intField -q -value $numField`;
-    string $oper = `radioButtonGrp -q -select $operField`; //-data
+    string $num = `textField -q -value $numField`;
+    $num = stringToStringArray((int) "$num",",");
+    //string $oper = `radioButtonGrp -q -select $operField`; //-data
+    string $oper = `radioButton -q -data $rbutton`;
 
-    int $result = Calculator ($num, $oper);
+    string $result = Calculator ($num, $oper);
     textField -e -text $result $resultField;
 
 }
@@ -193,17 +191,17 @@ global proc CalculatorUI()
 
     $mWindow = `window -title "Calculator" -widthHeight 300 400 -resizeToFitChildren 1 $mWindow`;
     string $mColumn = `columnLayout -parent $mWindow -adjustableColumn 1`;
-    optionVar -stringValue "cNumField" `intField -parent $mColumn`;
-    optionVar -stringValue "cnum2Field" `intField -parent $mColumn`;
-    optionVar -stringValue "cnum3Field" `intField -parent $mColumn`;
-    optionVar -stringValue "cnum4Field" `intField -parent $mColumn`;
-    optionVar -stringValue "cnum5Field" `intField -parent $mColumn`;
+    optionVar -stringValue "numText" `textField -parent $mColumn`;
     string $rCollection = `radioCollection -parent $mColumn`;
     optionVar -stringValue "myCollection" $rCollection;
-    radioButton -parent $mColumn -colletion $rCollection -label"Add"; //-data 1;
+    radioButton -parent $mColumn -colletion $rCollection -data 1;
+    radioButton -parent $mColumn -colletion $rCollection -data 2;
+    radioButton -parent $mColumn -colletion $rCollection -data 3;
+    radioButton -parent $mColumn -colletion $rCollection -data 4;
+    radioButton -parent $mColumn -colletion $rCollection -data 5;
+    radioButton -parent $mColumn -colletion $rCollection -data 6;
+    radioButton -parent $mColumn -colletion $rCollection -data 7;
 
-    
-    optionVar -stringValue "cOperation" `radioButtonGrp -parent $mColumn -numberOfRadioButtons 4 -labelArray4 "Add" "Substract" "Multiply" "divid"`;
     button -parent $mColumn -label "Go!" -command "C_ButtonCmd";
     optionVar -stringValue "cResult" `textField -parent $mColumn -editable 0`;
 
