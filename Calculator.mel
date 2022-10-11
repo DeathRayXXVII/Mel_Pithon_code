@@ -8,13 +8,13 @@
 
 
 
-global proc int Addition(int $num[]) //, int $num2)
+global proc float Addition(float $num[]) //, int $num2)
 {
     //int $result = $num += $num2;
     //print ($result);
     
-    int $total = 0;
-    int $result = size($num);
+    float $total = 0;
+    float $result = size($num);
     for ($i=0; $i < $result; $i++)
     {
        $total += $num[$i];
@@ -24,12 +24,12 @@ global proc int Addition(int $num[]) //, int $num2)
 }
 //Addition({2,2});
 
-global proc int Subtraction(int $num[]) //int $num2
+global proc float Subtraction(float $num[]) //int $num2
 {
     //int $result = $num -= $num2;
     //print ($result);
-    int $total = $num[0];
-    int $result = size($num);
+    float $total = $num[0];
+    float $result = size($num);
     for ($i=1; $i < $result; $i++)
     {
        $total -= $num[$i];
@@ -38,12 +38,12 @@ global proc int Subtraction(int $num[]) //int $num2
 }
 //Subtraction({4,2});
 
-global proc int Multiplication(int $num[]) //int $num2)
+global proc float Multiplication(float $num[]) //int $num2)
 {
     //int $result = $num *= $num2;
     //print ($result);
-    int $total = 1;
-    int $result = size($num);
+    float $total = 1;
+    float $result = size($num);
     for ($i=0; $i < $result; $i++)
     {
        $total *= $num[$i];
@@ -52,12 +52,12 @@ global proc int Multiplication(int $num[]) //int $num2)
 }
 //Multiplication({5,5});
 
-global proc int Division(int $num[]) //int $num2)
+global proc float Division(float $num[]) //int $num2)
 {
     //int $result = $num /= $num2;
     //print ($result);
-    int $total = 0;
-    int $result = size($num);
+    float $total = 0;
+    float $result = size($num);
     for ($i=0; $i < $result; $i++)
     {
        $total /= $num[$i];
@@ -66,30 +66,30 @@ global proc int Division(int $num[]) //int $num2)
 }
 //Division(18,6);
 
-global proc int Power(int $num, int $num2)
+global proc float Power(float $num, float $num2)
 {
-    int $result = pow ($num, $num2);
+    float $result = pow ($num, $num2);
     //print ($result);
     return $result;
 }
 //Power(4,3);
 
-global proc int Mean(int $num[]) //int $num2)
+global proc float Mean(float $num[]) //int $num2)
 {
     //int $result = ($num += $num2) / 2;
     //print ($result);
-    int $total = 0;
-    int $result = size($num);
+    float $total = 0;
+    float $result = size($num);
     for ($i=0; $i < $result; $i++)
     {
        $total += $num[$i];
     }
-    int $mean = ($total / $result);
+    float $mean = ($total / $result);
     return $mean;
 }
 //Mean ({2, 4});
 
-global proc int CheckingIfEven(int $num)
+global proc float CheckingIfEven(float $num)
 {
     if (($num % 2) == 0)
     {
@@ -98,62 +98,62 @@ global proc int CheckingIfEven(int $num)
     return false;
 }
 
-global proc int Median(int $num[]) //int $num2)
+global proc float Median(float $num[]) //int $num2)
 {
     $num = `sort $num`;
     int $result = size($num);
 
-    int $median;
+    float $median;
     if (CheckingIfEven($result))
     {
         $median = (($num[$result / 2] + $num[$result / 2] - 1) / 2);
-        print($median + "\n");
+        //print($median + "\n");
     }
     else
     {
         $median = $num[$result / 2];
-        print($median + "\n");
+        //print($median + "\n");
     }
     return $median;
 }
     //Median({1,3,5,7});
 
-global proc int Calculator(int $num[], int $operation)
+global proc string Calculator(float $num[], int $operation)
 {
     if ($operation == 1)
     {
         //print($num + "+ " + $num2 + "= " + Addition($num,$num2) + "\n");
-        return (intArrayToString($num, " + ") + " = " + Addition($num) + "\n");
+        return (floatArrayToString($num, " + ") + " = " + Addition($num) + "\n");
     }
     else if ($operation == 2)
     {
         //Subtraction($num,$num2);
-        return (intArrayToString($num, " - ") + " = " + Subtraction($num) + "\n");
+        return (floatArrayToString($num, " - ") + " = " + Subtraction($num) + "\n");
     }
     else if ($operation == 3)
     {
         //Multiplication($num,$num2);
-        return (intArrayToString($num, " * ") + " = " + Multiplication($num) + "\n");
+        return (floatArrayToString($num, " * ") + " = " + Multiplication($num) + "\n");
     }
     else if ($operation == 4)
     {
         //Division($num,$num2);
-        return (intArrayToString($num, " / ") + " = " + Division($num) + "\n");
+        return (floatArrayToString($num, " / ") + " = " + Division($num) + "\n");
     }
     else if ($operation == 5)
     {
         //Power($num,$num2);
-        return (intArrayToString($num, " ^ ") + " = " + Power($num[0], $num[1]) + "\n");
+        return (floatArrayToString($num, " ^ ") + " = " + Power($num[0], $num[1]) + "\n");
     }
     else if ($operation == 6)
     {
         //Mean($num,$num2);
-        return ("The mean of " + intArrayToString($num, ", ") + " is " + Mean($num) + "\n");
+        return ("The mean of " + floatArrayToString($num, ", ") + " is " + Mean($num) + "\n");
     }
     else if ($operation == 7)
     {
         //Median($num,$num2);
-        return ("The median of " + intArrayToString($num, ", ") + " is " + Median($num) + "\n");
+        return ("The median of " + floatArrayToString($num, ", ") + " is " + Median($num) + "\n");
     }
     else{
         print("Please input a number from 1 -7 after your arrary of numbers!! \n");
@@ -163,21 +163,23 @@ global proc C_ButtonCmd()
 {
     string $numField = `optionVar -q "numText"`;
     string $resultField = `optionVar -q "cResult"`;
-
-
     string $rCollection = `optionVar -q "myCollection"`;
+
+    //string $num = `textField -q $numField`;
     string $rbutton = `radioCollection -q -select $rCollection`;
     //radioButton -q -label $rbutton;
+    
+    float $num[];
 
-    
-//stringToStringArray  (float)
-    
-    string $num = `textField -q $numField`;
-    $num = stringToStringArray((int) "$num"," ");
-    //string $oper = `radioButtonGrp -q -select $operField`; //-data
+    string $resultArray[] = stringToStringArray(`textField -q -text $numField`, " ,/-");
+    for($i = 0; $i<size($resultArray); $i++)
+    {
+        $num[$i]=$resultArray[$i];
+    }
+  
     string $oper = `radioButton -q -data $rbutton`;
 
-    int $result = Calculator ($num, $oper);
+    string $result = Calculator ($num, $oper);
     textField -e -text $result $resultField;
 
 }
