@@ -118,7 +118,7 @@ global proc int Median(int $num[]) //int $num2)
 }
     //Median({1,3,5,7});
 
-global proc string Calculator(int $num[], int $operation)
+global proc int Calculator(int $num[], int $operation)
 {
     if ($operation == 1)
     {
@@ -172,12 +172,12 @@ global proc C_ButtonCmd()
     
 //stringToStringArray  (float)
     
-    string $num[] = `textField -q $numField`;
-    $num = stringToStringArray((int) "$num",",");
+    string $num = `textField -q $numField`;
+    $num = stringToStringArray((int) "$num"," ");
     //string $oper = `radioButtonGrp -q -select $operField`; //-data
     string $oper = `radioButton -q -data $rbutton`;
 
-    string $result = Calculator ($num, $oper);
+    int $result = Calculator ($num, $oper);
     textField -e -text $result $resultField;
 
 }
