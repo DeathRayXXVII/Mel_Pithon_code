@@ -203,7 +203,7 @@ global proc CalculatorUI()
     radioButton -parent $mColumn -collection $rCollection -label "Mean" -data 6;
     radioButton -parent $mColumn -collection $rCollection -label "Median" -data 7;
 
-    button -parent $mColumn -label "Go!" -command "C_ButtonCmd";
+    button -parent $mColumn -label "Enter" -command "C_ButtonCmd";
     optionVar -stringValue "cResult" `textField -parent $mColumn -editable 0`;
 
     showWindow $mWindow;
