@@ -1,0 +1,17 @@
+
+global proc LocatCenter()
+{
+string $sels[] = `ls -selection`;
+string $custerArray[] = `cluster $sels`;
+string $custer = $custerArray[1];
+float $centerLocation[] = `xform -q -worldSpace -rotatePivot $custer`;
+//print $centerLocation;
+
+string $loc[] = `spaceLocator`;
+xform -ws -translation $centerLocation[0] $centerLocation[1] $centerLocation[2] $loc;
+delete $custer;
+}
+
+LocatCenter();
+
+
