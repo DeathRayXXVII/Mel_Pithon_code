@@ -29,3 +29,50 @@ print(type(name))
 #     (dict)            print (pet["color"])
 #
 #   -  NoneType (None) : None
+
+# Arithmetic Operators
+    # + : Addition
+    # - : Subtraction
+    # * : Multiplication
+    # / : Division
+    # % : Modulus
+    # ** : Expontiation or rase to the power
+    # // : floor Division - round down to the nerest whole numbers
+
+# Assignment Operators
+    # = : Assign right ot left
+    # += : Add value on left to value on right and reassign to variable on left
+    # -= : subtract value on left to value on right and reassign to variable on left
+    # *= : Multiplies ""
+    # /= : Divides ""
+    # %= : Modulus ""
+    # **= : Exponentiation ""
+    # //= : Floor divides ""
+
+# Comparison Operators
+    # == : Equal to
+    # != : Not equal to
+    # > : Greater than
+    # < : Less than
+    # >= : Greater than or equal to
+    # <= : Less than or equal to
+
+# Logical Operators
+    # and : returns True if both statements are True
+    # or : returns True if one of the statements is True
+    # not : Reverse the result, retrun False if the result is True
+
+# Identity Operators
+    # is : Returns True if both variables are the same object
+    # is not : Returns True if both variables are not the same object
+
+# Membership Operators
+    # in : Returns True if a sequence with the specified value is present in the object
+    #not in : Returns True if a sequence with the specified value is not present in the object
+
+
+
+
+
+
+
