@@ -4,9 +4,11 @@ import maya.cmds as cmds
 def rig_color(color):
     sels = cmds.ls(sl=True)
 
-    for sel in sels:
-        cmds.setAttr(sels + '.overrideEnabled', 1)
-        cmds.setAttr(sels + '.overrideColor', color)
+    shape = cmds.listRelatives (sels, shapes = True)
+
+    for selection in shape:
+            cmds.setAttr(selection + '.overrideEnabled', 1)
+            cmds.setAttr(selection + '.overrideColor', color)
 
 
-rig_color("17")
+rig_color(13)
